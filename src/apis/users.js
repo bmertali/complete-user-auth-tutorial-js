@@ -6,6 +6,9 @@ import { DOMAIN } from "../constants"
 import { randomBytes } from 'crypto'
 import Validator from "..//middlewares/validator-middleware"
 import { AuthenticateValidations, RegisterValidations } from '../validators'
+// import passport from 'passport'
+import { userAuth } from '../middlewares/auth-guard'
+
 const router = Router()
 
 /**
@@ -137,6 +140,20 @@ async(req,res) => {
             message: "An error occurred."
         })
     }
+})
+
+/**
+ * @description To get the authenticated user's profile
+ * @api /users/api/authenticate
+ * @access PRIVATE
+ * @type GET
+ */
+
+router.get('/api/authenticate', userAuth, async (req,res) => {
+    // console.log("REQ", req)
+    return res.status(200).json({
+        user: req.user
+    })
 })
 
 export default router
