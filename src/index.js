@@ -19,7 +19,7 @@ app.use(cors())
 app.use(json())
 
 // Inject Sub router and apis
-app.use('./users', userApis)
+app.use('/users', userApis)
 
 const main = async () => {
     try{
