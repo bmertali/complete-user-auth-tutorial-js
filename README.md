@@ -6,4 +6,5 @@ This repository basically performs user authentication.
 <pre>
 NodeJS 
 PassportJS
+MongoDB (mongoose)
 </pre>
